@@ -39,10 +39,23 @@ html, body {
   color: var(--green);
   font-family: var(--font-pixel);
   overflow: hidden;
-  cursor: crosshair;
+  cursor: url('../assets/cursor/cursor_flecha.png'), auto;
 }
 
-/* ── SCANLINE OVERLAY ── */
+/* ── CURSORES PERSONALIZADOS ── */
+button,
+a,
+.char-card,
+.answer-btn,
+.btn-jugar,
+.briefing-start,
+.intro-continue,
+.result-btns button,
+#btn-final-home {
+  cursor: url('../assets/cursor/cursor_mano.png'), pointer;
+}
+
+
 body::after {
   content: '';
   position: fixed;
@@ -145,7 +158,7 @@ body::after {
   background: transparent;
   border: var(--border-thin);
   padding: 16px 70px;
-  cursor: crosshair;
+  cursor: url("../assets/cursor/cursor_flecha.png"), auto;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   transition: background 0.15s, box-shadow 0.15s;
@@ -208,7 +221,7 @@ body::after {
   border: 1px solid var(--green-dim);
   background: var(--black-soft);
   padding: 28px 18px 22px;
-  cursor: crosshair;
+  cursor: url("../assets/cursor/cursor_flecha.png"), auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -232,8 +245,8 @@ body::after {
 .char-card:hover::before { opacity: 1; }
 
 .char-avatar {
-  width: 220px;
-  height: 220px;
+  width: 260px;
+  height: 260px;
   object-fit: contain;
   image-rendering: pixelated;
   filter: drop-shadow(0 0 8px var(--green));
@@ -386,7 +399,7 @@ body::after {
   background: var(--green);
   border: 1px solid var(--black);
   padding: 12px 24px;
-  cursor: crosshair;
+  cursor: url("../assets/cursor/cursor_flecha.png"), auto;
   letter-spacing: 0.25em;
   white-space: nowrap;
   transition: background 0.15s;
@@ -428,8 +441,8 @@ body::after {
 }
 
 .game-avatar {
-  width: 230px;
-  height: 230px;
+  width: 270px;
+  height: 270px;
   object-fit: contain;
   image-rendering: pixelated;
   filter: drop-shadow(0 0 10px var(--green));
@@ -551,7 +564,7 @@ body::after {
   background: transparent;
   border: 1px solid #1a3a1a;
   padding: 14px 18px;
-  cursor: crosshair;
+  cursor: url("../assets/cursor/cursor_flecha.png"), auto;
   text-align: left;
   letter-spacing: 0.08em;
   line-height: 1.5;
@@ -671,7 +684,7 @@ body::after {
   background: transparent;
   border: var(--border-thin);
   padding: 12px 28px;
-  cursor: crosshair;
+  cursor: url("../assets/cursor/cursor_flecha.png"), auto;
   letter-spacing: 0.2em;
   transition: background 0.15s, box-shadow 0.15s;
 }
@@ -737,6 +750,103 @@ body::after {
   object-fit: contain;
   image-rendering: pixelated;
   filter: drop-shadow(0 0 4px var(--green));
+}
+
+/* ══════════════════════════════
+   INTRO SCREEN
+══════════════════════════════ */
+#screen-intro {
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-box {
+  position: relative;
+  width: min(760px, 88vw);
+  border: var(--border);
+  box-shadow: 0 0 0 6px var(--black), 0 0 0 9px var(--green), inset 0 0 40px var(--green-glow);
+  background: var(--black);
+  padding: 64px 56px 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 36px;
+}
+
+.intro-label {
+  font-family: var(--font-pixel);
+  font-size: 20px;
+  color: var(--green-dim);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+}
+
+.intro-text {
+  font-family: var(--font-pixel);
+  font-size: clamp(12px, 1.6vw, 14px);
+  color: var(--green);
+  line-height: 2;
+  letter-spacing: 0.06em;
+  min-height: 12em;
+}
+
+.intro-cursor {
+  display: inline-block;
+  width: 10px;
+  height: 1.1em;
+  background: var(--green);
+  vertical-align: text-bottom;
+  margin-left: 2px;
+  animation: blinkCursor 0.7s step-end infinite;
+}
+@keyframes blinkCursor {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.intro-continue {
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  color: var(--black);
+  background: var(--green);
+  border: 1px solid var(--black);
+  padding: 13px 32px;
+  cursor: url("../assets/cursor/cursor_flecha.png"), auto;
+  letter-spacing: 0.25em;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+  align-self: flex-end;
+}
+.intro-continue.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+.intro-continue:hover {
+  background: var(--green-dim);
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  #screen-intro {
+    padding: 24px 14px;
+    justify-content: center;
+    align-items: center;
+  }
+  .intro-box {
+    width: 100%;
+    padding: 36px 22px 32px;
+    gap: 24px;
+  }
+  .intro-text {
+    font-size: clamp(11px, 3vw, 13px);
+    min-height: 14em;
+  }
+  .intro-continue {
+    align-self: stretch;
+    text-align: center;
+  }
 }
 
 /* ══════════════════════════════
@@ -841,8 +951,8 @@ body::after {
   }
 
   .char-avatar {
-    width: 90px;
-    height: 90px;
+    width: 115px;
+    height: 115px;
   }
 
   .char-name {
@@ -932,8 +1042,8 @@ body::after {
   }
 
   .game-avatar {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     animation: none; /* evita vibraciones en móvil */
   }
 
@@ -1098,8 +1208,8 @@ body::after {
   }
 
   .char-avatar {
-    width: 72px;
-    height: 72px;
+    width: 88px;
+    height: 88px;
   }
 
   .char-name {
@@ -1112,8 +1222,8 @@ body::after {
   }
 
   .game-avatar {
-    width: 64px;
-    height: 64px;
+    width: 80px;
+    height: 80px;
   }
 
   .result-title {

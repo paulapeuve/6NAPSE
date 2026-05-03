@@ -293,6 +293,68 @@ function shuffle(arr) {
 function initHome() {
   $('#btn-jugar').addEventListener('click', () => {
     flash();
+    setTimeout(() => {
+      showScreen('screen-intro');
+      startTypewriter();
+    }, 150);
+  });
+}
+
+// INTRO
+const INTRO_LINES = [
+  '6NAPSE es un juego sobre empatía.',
+  '',
+  'Vas a conversar con seis personas distintas.',
+  'Cada una tiene su propia historia,',
+  'sus miedos y su forma de ver el mundo.',
+  '',
+  'Tu misión es responder con cuidado.',
+  'No se trata de acertar por suerte,',
+  'sino de escuchar de verdad.',
+  '',
+  'Necesitas 2 aciertos para avanzar.',
+  '2 fallos y la conversación se reinicia.',
+  '',
+  'Activa los seis vínculos.',
+  'Aprende a conectar.',
+];
+
+function startTypewriter() {
+  const el = $('#intro-text');
+  const btn = $('#btn-intro-continue');
+  btn.classList.remove('visible');
+
+  const fullText = INTRO_LINES.join('\n');
+  let i = 0;
+  el.innerHTML = '<span class="intro-cursor"></span>';
+
+  const interval = setInterval(() => {
+    if (i >= fullText.length) {
+      clearInterval(interval);
+      btn.classList.add('visible');
+      return;
+    }
+    const char = fullText[i];
+    const cursor = el.querySelector('.intro-cursor');
+    if (char === '\n') {
+      cursor.insertAdjacentHTML('beforebegin', '<br>');
+    } else {
+      cursor.insertAdjacentText('beforebegin', char);
+    }
+    i++;
+  }, 38);
+
+  // click para saltar animación
+  el.addEventListener('click', () => {
+    clearInterval(interval);
+    el.innerHTML = INTRO_LINES.map(l => l === '' ? '<br>' : l).join('<br>') + '<span class="intro-cursor"></span>';
+    btn.classList.add('visible');
+  }, { once: true });
+}
+
+function initIntro() {
+  $('#btn-intro-continue').addEventListener('click', () => {
+    flash();
     setTimeout(() => showScreen('screen-select'), 150);
     renderSelect();
   });
@@ -463,13 +525,13 @@ function renderResult(win) {
   const scoreEl = $('#result-score');
 
   if (win) {
-    titleEl.textContent = '[ CONEXIÓN ESTABLECIDA ]';
+    titleEl.textContent = '[ Conexión establecida! ]';
     titleEl.className = 'result-title win';
-    msgEl.textContent = `Has conseguido conectar con ${char.name}. Tu empatía marcó la diferencia.`;
+    msgEl.textContent = `Has conseguido conectar con ${char.name}. Buen trabajo!`;
   } else {
-    titleEl.textContent = '[ CONEXIÓN FALLIDA ]';
+    titleEl.textContent = '[ Conexión fallida.. ]';
     titleEl.className = 'result-title fail';
-    msgEl.textContent = `${char.name} se ha cerrado. La comunicación empática requiere práctica. ¡Inténtalo de nuevo!`;
+    msgEl.textContent = `${char.name} se ha cerrado. La comunicación requiere práctica. ¡Inténtalo de nuevo!`;
   }
 
   scoreEl.textContent = `ACIERTOS: ${state.score} / 3  |  FALLOS: ${state.errors} / 3`;
@@ -495,6 +557,7 @@ function renderFinal() {
 // ── EVENT LISTENERS ────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   initHome();
+  initIntro();
 
   // briefing → game
   $('#btn-start-level').addEventListener('click', () => {
