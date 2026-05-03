@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6NAPSE</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <!-- FLASH TRANSITION -->
+  <div class="flash-overlay"></div>
+
+  <!-- ══════════════════════════════
+       HOME
+  ══════════════════════════════ -->
+  <section class="screen active" id="screen-home">
+    <div class="home-terminal">
+      <div class="corner-tr"></div>
+      <div class="corner-bl"></div>
+
+      <img class="home-logo" src="assets/ilustraciones/6NapseGREEN.png" alt="6NAPSE">
+
+      <p class="home-tagline">activa seis vínculos · aprende a conectar</p>
+
+      <button class="btn-jugar" id="btn-jugar">[ JUGAR ]</button>
+
+      <span class="home-version">v1.0 · Paula Pavía Bravo — Peuve</span>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       SELECT CHARACTER
+  ══════════════════════════════ -->
+  <section class="screen" id="screen-select">
+    <div class="select-header">
+      <h2>SELECCIONA CON QUIÉN HABLAR</h2>
+      <p>2 aciertos para avanzar · 2 fallos para reiniciar</p>
+    </div>
+
+    <div class="char-grid" id="char-grid">
+      <!-- populated by JS -->
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       BRIEFING (pre-level)
+  ══════════════════════════════ -->
+  <section class="screen" id="screen-briefing">
+    <div class="briefing-box">
+
+      <!-- LEFT: info -->
+      <div class="briefing-left">
+        <div>
+          <div class="briefing-char-name" id="briefing-name">—</div>
+          <div class="briefing-subtitle" id="briefing-subtitle">—</div>
+        </div>
+
+        <div class="briefing-section">
+          <div class="briefing-section-title">Sensibilidad principal</div>
+          <ul id="briefing-sensitivity"></ul>
+        </div>
+
+        <div class="briefing-section">
+          <div class="briefing-section-title">Personalidad</div>
+          <ul id="briefing-personality"></ul>
+        </div>
+
+        <div class="briefing-section">
+          <div class="briefing-section-title">Miedo principal</div>
+          <ul id="briefing-fear"></ul>
+        </div>
+
+        <button class="briefing-start" id="btn-start-level">INICIAR CONVERSACIÓN ›</button>
+      </div>
+
+      <!-- RIGHT: portrait -->
+      <div class="briefing-right">
+        <img class="briefing-portrait" id="briefing-portrait" src="" alt="">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       GAME (dialogue)
+  ══════════════════════════════ -->
+  <section class="screen" id="screen-game">
+    <div class="game-wrapper">
+
+      <!-- Sidebar -->
+      <aside class="game-sidebar">
+        <img class="game-avatar" id="game-avatar" src="" alt="">
+        <div class="game-char-name" id="game-char-name">—</div>
+
+        <div class="game-progress">
+          <div class="progress-label">PROGRESO</div>
+          <div class="progress-dots" id="progress-dots"></div>
+        </div>
+
+        <div class="score-info" id="score-info">ACIERTOS: 0 / FALLOS: 0</div>
+      </aside>
+
+      <!-- Content -->
+      <main class="game-content">
+        <div class="game-top-bar">
+          <span class="game-level-tag" id="game-level-tag">NIVEL: —</span>
+          <span class="game-phase-tag" id="game-phase-tag">FASE 1 / 3</span>
+        </div>
+
+        <div class="dialogue-bubble">
+          <p class="dialogue-text" id="dialogue-text">…</p>
+        </div>
+
+        <div class="answers-grid" id="answers-grid">
+          <!-- populated by JS -->
+        </div>
+
+        <div class="feedback-bar" id="feedback-bar"></div>
+      </main>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       RESULT (win / lose)
+  ══════════════════════════════ -->
+  <section class="screen" id="screen-result">
+    <div class="result-box">
+      <div class="corner-tr"></div>
+      <div class="corner-bl"></div>
+
+      <div class="result-title" id="result-title">—</div>
+
+      <img class="result-portrait" id="result-portrait" src="" alt="">
+
+      <p class="result-message" id="result-message">—</p>
+
+      <div class="result-score" id="result-score">—</div>
+
+      <div class="result-btns">
+        <button id="btn-retry">[ REINTENTAR ]</button>
+        <button id="btn-back-select">[ ELEGIR OTRO ]</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       FINAL (all done)
+  ══════════════════════════════ -->
+  <section class="screen" id="screen-final">
+    <div class="final-box">
+      <div class="corner-tr"></div>
+      <div class="corner-bl"></div>
+
+      <img class="final-logo" src="assets/ilustraciones/6NapseGREEN.png" alt="6NAPSE">
+
+      <div class="final-title">TODAS LAS CONEXIONES ESTABLECIDAS</div>
+
+      <p class="final-message">
+        Has completado los seis vínculos emocionales.<br>
+        La empatía no es un destino, es un proceso continuo<br>
+        de escucha, adaptación y respeto.
+      </p>
+
+      <div class="final-chars" id="final-chars"></div>
+
+      <div class="result-btns">
+        <button id="btn-final-home">[ VOLVER AL INICIO ]</button>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
