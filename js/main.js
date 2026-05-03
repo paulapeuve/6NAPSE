@@ -373,7 +373,7 @@ function renderGame() {
   $('#score-info').textContent = `ACIERTOS: ${state.score} / FALLOS: ${state.errors}`;
 
   // dialogue
-  const intro = phase.intro ? `<span style="color:var(--green-dark)">${phase.intro}</span><br><br>` : '';
+  const intro = phase.intro ? `<span style="color:var(--green);text-decoration:underline;text-underline-offset:3px;">${phase.intro}</span><br><br>` : '';
   $('#dialogue-text').innerHTML = intro + `«${phase.question}»`;
 
   // answers (shuffled but keep correct index)
