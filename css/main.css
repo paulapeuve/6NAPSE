@@ -434,23 +434,28 @@ body::after {
   border-right: var(--border-thin);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 28px 16px;
-  gap: 16px;
+  overflow: hidden;
   background: var(--black-soft);
 }
 
-.game-avatar {
-  width: 270px;
-  height: 270px;
-  object-fit: contain;
-  image-rendering: pixelated;
-  filter: drop-shadow(0 0 10px var(--green));
-  animation: avatarBreathe 3s ease-in-out infinite;
+.game-scenario {
+  width: 100%;
+  flex: 1;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: brightness(0.88) saturate(1.1);
+  min-height: 0;
+    image-rendering: pixelated;
 }
-@keyframes avatarBreathe {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-4px); }
+
+.game-sidebar-info {
+  border-top: var(--border-thin);
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--black);
 }
 
 .game-char-name {
@@ -775,7 +780,7 @@ body::after {
 
 .intro-label {
   font-family: var(--font-pixel);
-  font-size: 20px;
+  font-size: 10px;
   color: var(--green-dim);
   letter-spacing: 0.35em;
   text-transform: uppercase;
@@ -1028,23 +1033,27 @@ body::after {
     min-height: unset;
   }
 
-  /* sidebar se convierte en barra horizontal */
+  /* sidebar en móvil: escenario arriba, info abajo */
   .game-sidebar {
     border-right: none;
     border-bottom: var(--border-thin);
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .game-scenario {
+    width: 100%;
+    height: 180px;
+    flex: unset;
+    object-fit: cover;
+  }
+
+  .game-sidebar-info {
+    padding: 12px 16px 14px;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
-    padding: 14px 16px;
-    gap: 12px;
-    background: var(--black-soft);
-  }
-
-  .game-avatar {
-    width: 100px;
-    height: 100px;
-    animation: none; /* evita vibraciones en móvil */
+    gap: 10px;
   }
 
   .game-char-name {
@@ -1221,9 +1230,8 @@ body::after {
     min-height: 210px;
   }
 
-  .game-avatar {
-    width: 80px;
-    height: 80px;
+  .game-scenario {
+    height: 140px;
   }
 
   .result-title {
