@@ -780,7 +780,7 @@ body::after {
 
 .intro-label {
   font-family: var(--font-pixel);
-  font-size: 10px;
+  font-size: 20px;
   color: var(--green-dim);
   letter-spacing: 0.35em;
   text-transform: uppercase;
