@@ -15,7 +15,7 @@ const CHARACTERS = [
     personality: ['Sarcástica y segura en apariencia', 'Controladora y perfeccionista', 'Mantiene imagen impecable como defensa'],
     avatar: 'assets/ilustraciones/Valeria (1).png',
     portrait: 'assets/ilustraciones/Valeria (2).png',
-    scenario: 'assets/escenarios/Es_valeria.jpg',
+    scenario: 'assets/escenarios/Es_valeria.JPG',
     phases: [
       {
         intro: '«Ay, hola. Estaba pensando en algo y quería preguntarte una cosa… ¿puedo?»',
@@ -57,7 +57,7 @@ const CHARACTERS = [
     personality: ['Amable y educado', 'Duda antes de hablar', 'Se disculpa por todo'],
     avatar: 'assets/ilustraciones/Mateo (1).png',
     portrait: 'assets/ilustraciones/Mateo (2).png',
-    scenario: 'assets/escenarios/Es_mateo.jpg',
+    scenario: 'assets/escenarios/Es_mateo.JPG',
     phases: [
       {
         intro: '«Hola… ¿te pillo en buen momento? A veces este coche tarda un poco en arrancar… JAJA»',
@@ -99,7 +99,7 @@ const CHARACTERS = [
     personality: ['Impulsivo y a la defensiva', 'Reacciona rápido para protegerse', 'Teme que descubran sus emociones'],
     avatar: 'assets/ilustraciones/axel (1).png',
     portrait: 'assets/ilustraciones/axel (2).png',
-    scenario: 'assets/escenarios/Es_axel.jpg',
+    scenario: 'assets/escenarios/Es_axel.JPG',
     phases: [
       {
         intro: '«Oye tú, ¿me estabas mirando?»',
@@ -141,7 +141,7 @@ const CHARACTERS = [
     personality: ['Silenciosa y muy observadora', 'Le cuesta confiar en la gente', 'Un comentario brusco la cierra más'],
     avatar: 'assets/ilustraciones/Luna (1).png',
     portrait: 'assets/ilustraciones/Luna (2).png',
-    scenario: 'assets/escenarios/Es_luna.jpg',
+    scenario: 'assets/escenarios/Es_luna.JPG',
     phases: [
       {
         intro: '«Hola… ¿podemos hablar un rato? Estoy aburrida y no hay ningún amigo.»',
@@ -183,7 +183,7 @@ const CHARACTERS = [
     personality: ['Creativo y muy entusiasta', 'Habla con emoción de sus hobbies', 'Inseguro de no encajar'],
     avatar: 'assets/ilustraciones/Nico (1).png',
     portrait: 'assets/ilustraciones/Nico (2).png',
-    scenario: 'assets/escenarios/Es_nico.jpg',
+    scenario: 'assets/escenarios/Es_nico.JPG',
     phases: [
       {
         intro: '',
@@ -225,7 +225,7 @@ const CHARACTERS = [
     personality: ['Dulce y muy emocional', 'Muy transparente', 'Vive el mundo con inocencia'],
     avatar: 'assets/ilustraciones/alma (1).png',
     portrait: 'assets/ilustraciones/alma (2).png',
-    scenario: 'assets/escenarios/Es_alma.jpg',
+    scenario: 'assets/escenarios/Es_alma.JPG',
     phases: [
       {
         intro: '«Hola… ¿está bien si hablamos un ratito?»',
